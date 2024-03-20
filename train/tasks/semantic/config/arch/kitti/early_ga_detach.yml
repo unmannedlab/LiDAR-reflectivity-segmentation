@@ -1,0 +1,82 @@
+################################################################################
+# training parameters
+################################################################################
+train:
+  name: "SalsaNextEarly"
+  input_channels: 5
+  loss: "xentropy"       # must be either xentropy or iou
+  intensity_loss: "gaussian"  # must be either l1 or l2 or gaussian
+  intensity_weight: 0.1 # weight for intensity loss
+  detach_flag: True          # detach input from graph
+  max_epochs: 150
+  lr: 0.01              # sgd learning rate
+  wup_epochs: 1          # warmup during first XX epochs (can be float)
+  momentum: 0.9          # sgd momentum
+  lr_decay: 0.99         # learning rate decay per epoch after initial cycle (from min lr)
+  w_decay: 0.0001        # weight decay
+  batch_size: 6            # batch size
+  report_batch: 10        # every x batches, report loss
+  report_epoch: 1        # every x epochs, report validation set
+  epsilon_w: 0.001       # class weight w = 1 / (content + epsilon_w)
+  save_summary: False    # Summary of weight histograms for tensorboard
+  save_scans: True       # False doesn't save anything, True saves some
+    # sample images (one per batch of the last calculated batch)
+  # in log folder
+  show_scans: False      # show scans during training
+  workers: 20            # number of threads to get data
+
+################################################################################
+# postproc parameters
+################################################################################
+post:
+  CRF:
+    use: False
+    train: True
+    params: False # this should be a dict when in use
+  KNN:
+    use: True # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0
+
+################################################################################
+# classification head parameters
+################################################################################
+# dataset (to find parser)
+dataset:
+  labels: "kitti"
+  scans: "kitti"
+  max_points: 150000 # max of any scan in dataset
+  sensor:
+    name: "HDL64"
+    type: "spherical" # projective
+    fov_up: 3
+    fov_down: -25
+    img_prop:
+      width: 2048
+      height: 64
+    range_flag: True
+    x_flag: True
+    y_flag: True
+    z_flag: True
+    intensity_flag: True
+    reflectivity_flag: False
+    near_range_flag: False
+    img_means:
+      - 10.863195419311523
+      - -0.007870238274335861
+      - 0.41361063718795776
+      - -1.0632332563400269
+      - 0.2892766296863556
+      - 0.12629695236682892
+      - 0.19641587138175964
+    img_stds:
+      - 8.0420503616333
+      - 10.551858901977539
+      - 8.329160690307617
+      - 0.8168400526046753
+      - 0.14115223288536072
+      - 0.10917366296052933
+      - 0.12951058149337769

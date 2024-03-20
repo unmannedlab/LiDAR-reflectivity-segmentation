@@ -1,0 +1,127 @@
+# This file is covered by the LICENSE file in the root of this project.
+name: "poss"
+labels:
+  0: "unlabeled"
+  4: "1 person"
+  5: "2+ person"
+  6: "rider"
+  7: "car"
+  8: "trunk"
+  9: "plants"
+  10: "traffic sign 1" # standing sign
+  11: "traffic sign 2" # hanging sign
+  12: "traffic sign 3" # high/big hanging sign
+  13: "pole"
+  14: "trashcan"
+  15: "building"
+  17: "fence"
+  16: "cone/stone"
+  21: "bike"
+  22: "ground" # class definition
+
+color_map: # bgr
+
+  0 : [0, 0, 0]                        # 0: "unlabeled"
+  4 : [30, 30, 255]                   # 4: "1 person"
+  5 : [30, 30, 255]                   # 5: "2+ person"
+  6 : [200, 40, 255]                  # 6: "rider"
+  7 : [245, 150, 100]                # 7: "car"
+  8 : [0,60,135]                     # 8: "trunk"
+  9 : [0, 175, 0]                    # 9: "plants"
+  10: [0, 0, 255]                    # 10: "traffic sign 1"
+  11: [0, 0, 255]                   # 11: "traffic sign 2"
+  12: [0, 0, 255]                   # 12: "traffic sign 3"
+  13: [150, 240, 255]               # 13: "pole"
+  14: [0, 255, 125]                   # 14: "trashcan"
+  15: [0, 200, 255]                  # 15: "building"
+  16: [255, 255, 50]                  # 16: "cone/stone"
+  17: [50, 120, 255]                 # 17: "fence"
+  21: [245, 230, 100]                # 21: "bike"
+  22: [128, 128, 128]              # 22: "ground"
+
+
+content: # as a ratio with the total number of points
+  0: 0.020862830428742977
+  1: 2.469082128891203e-08
+  4: 0.015402000989588365
+  5: 0.0030953055529133635
+  6: 0.004473705218516682
+  7: 0.08265452422115742
+  8: 0.012670218398511653
+  9: 0.3590911520036982
+  10: 0.0032106116883325827
+  11: 0.0012968804500358467
+  12: 0.00163708540024725
+  13: 0.00486631890599593
+  14: 0.0008666823943906168
+  15: 0.21372203059566083
+  16: 0.0009603445558679757
+  17: 0.015234582406756767
+  18: 0.0007389617140273326
+  19: 3.6991788455048e-05
+  20: 0.0005476522925165844
+  21: 0.05418175057745164
+  22: 0.20445034572631166
+# classes that are indistinguishable from single scan or inconsistent in
+# ground truth are mapped to their closest equivalent
+
+# 11 CLASSES
+learning_map:
+  0: 0 #"unlabeled"
+  4: 1 # "1 person" --> "people"  ----------------mapped
+  5: 1 # "2+ person" --> "people"  ---------------mapped
+  6: 2 #"rider"
+  7: 3 #"car"
+  8: 4 #"trunk"
+  9: 5 #"plants"
+  10: 6 # "traffic sign 1" # standing sign -->traffic sign----------------mapped
+  11: 6 #"traffic sign 2" # hanging sign-->traffic sign----------------mapped
+  12: 6 #"traffic sign 3" # high/big hanging sign-->traffic sign----------------mapped
+  13: 7 #"pole"
+  14: 0 #"trashcan"  --> "unlabeled"  ----------------mapped
+  15: 8 #"building"
+  16: 0 # "cone/stone"  --> "unlabeled"  ----------------mapped
+  17: 9 # "fence"
+  21: 10 #"bike"
+  22: 11 #"ground" # class definition
+
+learning_map_inv: # inverse of previous map
+  0: 0      # "unlabeled"
+  1: 4     # "people"
+  2: 6     # "rider"
+  3: 7     # "car"
+  4: 8     # "trunk"
+  5: 9     # "plants"
+  6: 10     # "traffic sign"
+  7: 13     # "pole"
+  8: 15     # "building"
+  9: 17    # "fence"
+  10: 21    # "bike"
+  11: 22    # "ground"
+
+learning_ignore: # Ignore classes
+  0: True      # "unlabeled", and others ignored
+  1: False     # "car"
+  2: False     # "bicycle"
+  3: False     # "motorcycle"
+  4: False     # "truck"
+  5: False     # "other-vehicle"
+  6: False     # "person"
+  7: False     # "bicyclist"
+  8: False     # "motorcyclist"
+  9: False     # "road"
+  10: False    # "parking"
+  11: False    # "sidewalk"
+
+
+split: # sequence numbers
+  train:
+    - 0
+    - 1
+    - 3
+    - 4
+    - 5
+  valid:
+    - 2
+  test:
+    - 2

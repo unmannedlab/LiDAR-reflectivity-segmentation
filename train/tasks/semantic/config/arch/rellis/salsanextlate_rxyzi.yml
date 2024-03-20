@@ -1,0 +1,81 @@
+################################################################################
+# training parameters
+################################################################################
+train:
+  name: "SalsaNextLate"
+  input_channels: 5
+  loss: "xentropy"       # must be either xentropy or iou
+  max_epochs: 150
+  lr: 0.01              # sgd learning rate
+  wup_epochs: 1          # warmup during first XX epochs (can be float)
+  momentum: 0.9          # sgd momentum
+  lr_decay: 0.99         # learning rate decay per epoch after initial cycle (from min lr)
+  w_decay: 0.0001        # weight decay
+  batch_size: 6            # batch size
+  report_batch: 10        # every x batches, report loss
+  report_epoch: 1        # every x epochs, report validation set
+  epsilon_w: 0.001       # class weight w = 1 / (content + epsilon_w)
+  save_summary: False    # Summary of weight histograms for tensorboard
+  save_scans: True       # False doesn't save anything, True saves some
+    # sample images (one per batch of the last calculated batch)
+  # in log folder
+  show_scans: False      # show scans during training
+  workers: 10            # number of threads to get data
+
+################################################################################
+# postproc parameters
+################################################################################
+post:
+  CRF:
+    use: False
+    train: True
+    params: False # this should be a dict when in use
+  KNN:
+    use: True # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0
+
+################################################################################
+# classification head parameters
+################################################################################
+# dataset (to find parser)
+dataset:
+  labels: "rellis"
+  scans: "rellis"
+  max_points: 150000 # max of any scan in dataset
+  sensor:
+    name: "OUSTER"
+    type: "spherical" # projective
+    fov_up: 22.5
+    fov_down: -22.5
+    img_prop:
+      width: 2048
+      height: 64
+    range_flag: True
+    x_flag: True
+    y_flag: True
+    z_flag: True
+    intensity_flag: True
+    reflectivity_flag: False
+    near_range_flag: False
+    img_means:
+    #range,x,y,z,intensity,reflectivity,near_range
+      - 8.290761947631836
+      - 0.29426947236061096
+      - 0.16575883328914642
+      - 0.3792478144168854
+      - 0.004332007374614477
+      - 0.005957215093076229
+      - 0.010744987055659294
+    img_stds:
+    #range,x,y,z,intensity,reflectivity,near_range
+      - 5.911395072937012
+      - 7.362071514129639
+      - 6.92847204208374
+      - 1.104516625404358
+      - 0.0024722288362681866
+      - 0.006605521310120821
+      - 0.006943633314222097
