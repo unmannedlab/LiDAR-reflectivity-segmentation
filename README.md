@@ -1,4 +1,4 @@
-## Implementation of "Reflectivity is All You Need!: Advancing LiDAR Semantic Segmentation
+## Reflectivity is All You Need!: Advancing LiDAR Semantic Segmentation
 #### The repository is under frequent updation.  
 
 ### Summary
@@ -46,5 +46,7 @@ Inorder to evaluate Salsanext:
 bash run_salsanext_eval.sh 
 ```
 Edit the paths for dataset and pretrained models in *evaluate.sh*
+
+![Result table](./images/result_table.png)
 
 ### Training 
