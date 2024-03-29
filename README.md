@@ -35,3 +35,14 @@ early_ga_detach.yml (*learning reflectivity*)
 
 ### Evaluate SalsaNext
 
+#### Download Pretrained models.[Google Drive.](https://drive.google.com/file/d/1RxsLVhq5ZFLj9q8AydaPOsM4DpwwrL9K/view?usp=sharing)
+
+Make sure you have installed all the python dependencies.
+```
+pip install -r ./requirements.txt
+```
+Inorder to evaluate Salsanext:
+```
+bash evaluate.sh 
+```
+Edit the paths for dataset and pretrained models in *evaluate.sh*
