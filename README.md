@@ -6,8 +6,7 @@
 ##### This repository explores the benefits of incorporating calibrated intensity (reflectivity) in learning-based LiDAR semantic segmentation frameworks. By leveraging reflectivity alongside raw intensity measurements, our model exhibits improved performance, particularly in off-road scenarios.
 
 ![Results Illustration](./images/result.png)
-##### *rxyzi* represents model trained on raw intensity data.
-##### *rxyzn* represents model trained on reflectivity data.
+*rxyzi* represents model trained on raw intensity data. *rxyzn* represents model trained on reflectivity data.
 
 ### Generating reflectivity data
 ```
