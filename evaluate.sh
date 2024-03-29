@@ -1,2 +1,3 @@
 cd ./train/tasks/semantic
-python evaluate_iou.py -d /home/usl/Desktop/intensity_salsa/ -p /home/usl/Desktop/intensity_salsa/SalsaNext/train/tasks/semantic/logs/salsa/
+python infer2.py -d /path/to/dataset/ -l /path/to/logs -m /path/to/pretrained/model -n rxyzn 
+python evaluate_iou.py -d /path/to/dataset/ -p /path/to/infered/data
