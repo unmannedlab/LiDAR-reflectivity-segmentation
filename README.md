@@ -43,6 +43,8 @@ pip install -r ./requirements.txt
 ```
 Inorder to evaluate Salsanext:
 ```
-bash evaluate.sh 
+bash run_salsanext_eval.sh 
 ```
 Edit the paths for dataset and pretrained models in *evaluate.sh*
+
+### Training 
