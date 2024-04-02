@@ -1,6 +1,5 @@
 ## Reflectivity is All You Need!: Advancing LiDAR Semantic Segmentation
-#### The repository is under frequent updation.  
-
+![[Paper]](https://arxiv.org/abs/2403.13188)
 ### Summary
 
 ##### This repository explores the benefits of incorporating calibrated intensity (reflectivity) in learning-based LiDAR semantic segmentation frameworks. By leveraging reflectivity alongside raw intensity measurements, our model exhibits improved performance, particularly in off-road scenarios.
@@ -9,10 +8,13 @@
 *rxyzi* represents model trained on raw intensity data. *rxyzn* represents model trained on reflectivity data.
 
 ### Generating reflectivity data
+Generate reflectivity data for Rellis-3D: 
 ```
 python utils/data_generator.py
 ```
 Modify the dataset and output file path.
+
+Data generators for Semantic-Kitti and Semantic-POSS can be found in */utils*.
 
 #### Modified Rellis-3D dataset used for training and testing. [Download.](https://drive.google.com/file/d/1nWOecnBa6WugoBl-JnFZzV2s9ogXnZw_/view?usp=sharing) 
 
@@ -49,4 +51,21 @@ Edit the paths for dataset and pretrained models in *evaluate.sh*
 
 ![Result table](./images/result_table.png)
 
-### Training 
+#### There are several helpers and utilities in */utils*.
+
+### Related Research
+
+![Off-Road LiDAR Intensity Based Semantic Segmentation](https://github.com/MOONLABIISERB/lidar-intensity-predictor/tree/main)
+
+### Citation
+
+```
+@misc{viswanath2024reflectivity,
+      title={Reflectivity Is All You Need!: Advancing LiDAR Semantic Segmentation}, 
+      author={Kasi Viswanath and Peng Jiang and Srikanth Saripalli},
+      year={2024},
+      eprint={2403.13188},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
