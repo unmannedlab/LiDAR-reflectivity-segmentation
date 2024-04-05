@@ -26,7 +26,7 @@ import torchvision
 
 writer = SummaryWriter("exp1")
 def train():
-    root = '/media/moonlab/sd_card/Rellis_3D_lidar_example/'
+    root = '/path/to/dataset/'
     #train_list = 'train.txt'
     #val_list = 'val.txt'
     #retrain = False
@@ -44,14 +44,14 @@ def train():
     #train_dataset = dataset.dataset(root,train_list)
     #val_dataset = dataset.dataset(root,val_list)
     
-    train_data = np.load(root+'train_data_dotv2_test.npy',allow_pickle = True)
-    train_gt = np.arccos(np.load(root+'train_GT_dotv2_test.npy',allow_pickle = True))
+    train_data = np.load(root+'train_data.npy',allow_pickle = True)
+    train_gt = np.arccos(np.load(root+'train_GT.npy',allow_pickle = True))
     train_data_tensor = torch.Tensor(train_data)
     train_gt_tensor = torch.Tensor(train_gt)
     train_dataset = TensorDataset(train_data_tensor,train_gt_tensor)
     
-    val_data = np.load(root+'val_data_dotv2_test.npy',allow_pickle = True)
-    val_gt = np.arccos(np.load(root+'val_GT_dotv2_test.npy',allow_pickle = True))
+    val_data = np.load(root+'val_data.npy',allow_pickle = True)
+    val_gt = np.arccos(np.load(root+'val_GT.npy',allow_pickle = True))
     val_data_tensor = torch.Tensor(val_data)
     val_gt_tensor = torch.Tensor(val_gt)
     val_dataset = TensorDataset(val_data_tensor,val_gt_tensor)
@@ -71,7 +71,7 @@ def train():
     lossfn = torch.nn.L1Loss()
     optimizer = torch.optim.Adam(models.parameters(),lr = 0.01,weight_decay = float(0.025*math.sqrt(batch_size/(len(trainloader)*epoch))))
     #if retrain:
-    #    models.load_state_dict(torch.load('/home/dse/Desktop/cost_data/take18/train14/epoch_46/model.pth')['model_state_dict'])
+    #    models.load_state_dict(torch.load('path/to/model.pth')['model_state_dict'])
     print(models)
     los = []
     vallo = []
