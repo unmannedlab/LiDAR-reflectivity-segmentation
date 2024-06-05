@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 
 if __name__=="__main__":
-    rellis_root = "/home/peng/Github/intensity_salsa/rellis_lidar_nr"
+    rellis_root = "path/to/dataset/rellis_lidar_nr"
     seqs = np.arange(5)
     intensity_type = {"intensity": "os1_cloud_node_kitti_bin",
                       "reflectivity":"os1_cloud_node_kitti_reflec",
