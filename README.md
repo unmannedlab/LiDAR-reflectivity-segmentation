@@ -51,6 +51,11 @@ Edit the paths for dataset and pretrained models in *evaluate.sh*
 
 ![Result table](./images/result_table.png)
 
+#### To generate LiDAR images for SAM Model
+```
+python utils/lidar_image_generator.py
+```
+The LiDAR specifications and paths needs to be modified in the code.
 #### There are several helpers and utilities in */utils*.
 
 ### Related Research
