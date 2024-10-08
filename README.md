@@ -1,5 +1,10 @@
 ## Reflectivity is All You Need!: Advancing LiDAR Semantic Segmentation
 [[Paper]](https://arxiv.org/abs/2403.13188)
+
+
+https://github.com/user-attachments/assets/405f81ae-d374-43d8-a45c-f98d7f2a3b40
+
+
 ### Summary
 
 ##### This repository explores the benefits of incorporating calibrated intensity (reflectivity) in learning-based LiDAR semantic segmentation frameworks. By leveraging reflectivity alongside raw intensity measurements, our model exhibits improved performance, particularly in off-road scenarios.
