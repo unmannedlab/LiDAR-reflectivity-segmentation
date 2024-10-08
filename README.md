@@ -57,6 +57,7 @@ Edit the paths for dataset and pretrained models in *evaluate.sh*
 ![Result table](./images/result_table.png)
 
 #### To generate LiDAR images for SAM Model
+![Reflectivity on SAM](./images/ref_sam.png)
 ```
 python utils/lidar_image_generator.py
 ```
