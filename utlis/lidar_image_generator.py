@@ -15,11 +15,11 @@ def image_projection(img,u,v,ins):
 
 def processing(points, ins = None, ref = None, rang = None):
     x,y,z= points[:,0],points[:,1],points[:,2]
-    fov_up = 0.392
-    fov_down = -0.392
+    fov_up = 0.392 ## upward field of view
+    fov_down = -0.392 ## downward field of view
     rang = np.sqrt(x**2+y**2+z**2)
-    row_scale = 64
-    col_scale = 2047
+    row_scale = 64 ## number of rings
+    col_scale = 2047 ## scan mode
     img = np.zeros((64,2048), dtype = np.int8)
     if ins is not None:
         label = (ins/np.max(ins)*255).astype(np.int8)
@@ -44,6 +44,7 @@ if __name__ == "__main__":
             x,y,z,ins,_,nr = points[:,0],points[:,1],points[:,2],points[:,3],points[:,4],points[:,5]
 
             ranged = np.sqrt(x**2+y**2+z**2)
+            ## remove the points that are out of the range
             ind = np.where(ranged == 0)[0]
             ins = np.delete(ins,list(ind))
             x = np.delete(x,list(ind))
