@@ -73,12 +73,17 @@ The LiDAR specifications and paths needs to be modified in the code.
 ### Citation
 
 ```
-@misc{viswanath2024reflectivity,
-      title={Reflectivity Is All You Need!: Advancing LiDAR Semantic Segmentation}, 
-      author={Kasi Viswanath and Peng Jiang and Srikanth Saripalli},
-      year={2024},
-      eprint={2403.13188},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{VISWANATH202543,
+title = {Reflectivity Is All You Need!: Advancing LiDAR Semantic Segmentation},
+journal = {IFAC-PapersOnLine},
+volume = {59},
+number = {3},
+pages = {43-48},
+year = {2025},
+note = {12th IFAC Symposium on Intelligent Autonomous Vehicles IAV 2025},
+issn = {2405-8963},
+doi = {https://doi.org/10.1016/j.ifacol.2025.07.008},
+url = {https://www.sciencedirect.com/science/article/pii/S2405896325003477},
+author = {Kasi Viswanath and Peng Jiang and Srikanth Saripalli}
 }
 ```
