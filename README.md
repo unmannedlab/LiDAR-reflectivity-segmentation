@@ -62,7 +62,7 @@ Edit the paths for dataset and pretrained models in *evaluate.sh*
 python utils/lidar_image_generator.py
 ```
 The LiDAR specifications and paths needs to be modified in the code.
-##### The GUI used in the video for SAM based LiDAR annotations will be released soon!.
+#### The GUI used in the video for SAM based LiDAR annotations can be found [here](https://github.com/unmannedlab/Segmentation-Annotator)
  
 #### There are several helpers and utilities in */utils*.
 
